@@ -1,12 +1,21 @@
+OpenWRT ssh
+
+->
+
 vim /etc/config/firewall
 
 ->
 
 config rule
         option target 'ACCEPT'
-        option src 'wan'                                        #Zum Internet
-        option dest 'lan'                                       #Zum Nachhause
-        option dest_ip '2001:638:208:d600:a79d:b0e3:5a61:abb1'  #Zum Client der Forwarded soll
+        option src 'wan'
+        # -> Zum Internet
+        option dest 'lan'
+        # -> Zum Nachhause
+        option dest_ip '2001:638:208:d600:a79d:b0e3:5a61:abb1'  
+        # -> Zum Client der Forwarded soll (Zweites inet6 i.d.R. (eth0)(bei raspi))
         option family 'ipv6'
-        option dest_port '443'                                  #Port
-        option name 'nc-443v6'                                  #Name
+        option dest_port '443'                                  
+        # -> Port
+        option name 'nc-443v6'
+        # -> Name
